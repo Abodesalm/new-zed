@@ -14,7 +14,7 @@ export default async function UserPage({ params }) {
     <div className="pad w-full">
       <Suspense fallback={<Loader />}>
         <UserInfo user={userData} check={user === username} />
-        <UserReviews userId={userData?.data?.id} />
+        <UserReviews userId={userData?.data?.id} check={user === username} />
       </Suspense>
     </div>
   );

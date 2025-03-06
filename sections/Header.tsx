@@ -15,7 +15,7 @@ function Header() {
     { url: `/settings`, icon: "others" },
   ];
   return (
-    <div className="w-full h-[40px] bg-light dark:bg-middark flex flex-row items-center justify-between">
+    <div className="w-full pad py-[0_!important] h-[40px] bg-light dark:bg-middark flex flex-row items-center justify-between">
       {links.map((l) => (
         <Link
           className={`w-1/5 h-full flex items-center justify-center [&>*]:hover:bg-aclight/40 [&>*]:hover:dark:bg-boldblue/30`}

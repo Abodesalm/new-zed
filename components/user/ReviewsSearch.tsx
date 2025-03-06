@@ -1,8 +1,11 @@
 "use client";
 
+import Link from "next/link";
 import Icon from "../layout/Icon";
+import { usePathname } from "next/navigation";
 
-function ReviewsSearch({ setForm, form, setSearch }) {
+function ReviewsSearch({ setForm, form, setSearch, check }) {
+  const path = usePathname();
   return (
     <section className="w-full flex flex-row items-center justify-center gap-12">
       <input
@@ -30,6 +33,12 @@ function ReviewsSearch({ setForm, form, setSearch }) {
           <Icon i={`table-form`} />
         </button>
       </div>
+      {check && (
+        <Link className="btn-accent-outline" href={`${path}/wishlist`}>
+          <p className="md:hidden">wishlist</p>
+          <Icon className="hidden md:flex" i={`wishlist`} />
+        </Link>
+      )}
     </section>
   );
 }

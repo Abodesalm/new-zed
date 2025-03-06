@@ -4,7 +4,6 @@ import { sessionOptions, SessionData, defaultSession } from "@/lib/lib";
 import { login_api, signup_api } from "@/public/data";
 import { getIronSession } from "iron-session";
 import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
 
 export const getAuth = async () => {
   const session = await getIronSession<SessionData>(
@@ -44,12 +43,13 @@ export const login = async (
     session.avatar = userData.avatar;
     session.role = userData.role;
     session.tags = userData.tags;
+    session.wishlist = userData.wishlist;
     session.id = userData.id;
     session.isLoged = true;
     session.expiresAt = 2592000000;
     console.log(session);
     await session.save();
-    redirect("/");
+    return "success";
   } else {
     return signing.message;
   }
@@ -84,12 +84,13 @@ export const signup = async (
     session.avatar = userData.avatar;
     session.role = userData.role;
     session.tags = userData.tags;
+    session.wishlist = userData.wishlist;
     session.id = userData.id;
     session.isLoged = true;
     session.expiresAt = 2592000000;
     console.log(session);
     await session.save();
-    redirect("/");
+    return "success";
   } else {
     return signing.message;
   }

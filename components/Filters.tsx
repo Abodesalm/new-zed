@@ -1,12 +1,17 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
 import { GrCheckbox, GrCheckboxSelected } from "react-icons/gr";
 
-export default function Filters({ name, add, del, data }) {
+export default function Filters({
+  name,
+  add,
+  del,
+  data,
+  state = false,
+  dispatch,
+}) {
   const [selected, setSelected] = useState<boolean>();
-  const dispatch = useDispatch();
 
   useEffect(() => {
     if (data?.includes(name)) {
@@ -15,9 +20,15 @@ export default function Filters({ name, add, del, data }) {
   }, [data]);
 
   useEffect(() => {
-    if (selected) dispatch(add(name));
-    else if (!selected) dispatch(del(name));
+    if (state) {
+      if (selected) add(name);
+      else if (!selected) del(name);
+    } else if (!state) {
+      if (selected) dispatch(add(name));
+      else if (!selected) dispatch(del(name));
+    }
   }, [selected]);
+
   return (
     <div
       onClick={() => {

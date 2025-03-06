@@ -1,15 +1,15 @@
-"use client";
-
-import { store } from "@/redux/game-add/store";
+import Protect from "@/components/layout/Protect";
 import EditForm from "@/sections/game/EditForm";
-import { Provider } from "react-redux";
+import ReduxProvider from "@/sections/game/ReduxProvider";
 
 export default function EditGame() {
   return (
-    <Provider store={store}>
-      <div className="pad w-full">
-        <EditForm />
-      </div>
-    </Provider>
+    <Protect permission={"admin"}>
+      <ReduxProvider>
+        <div className="pad w-full">
+          <EditForm />
+        </div>
+      </ReduxProvider>
+    </Protect>
   );
 }

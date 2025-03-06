@@ -6,6 +6,7 @@ export interface SessionData {
   avatar?: number;
   role?: string;
   tags?: string[];
+  wishlist?: string[];
   id?: string;
   isLoged: boolean;
   expiresAt?: number;

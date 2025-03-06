@@ -58,10 +58,10 @@ const TableForm = ({ data }) => {
         <thead>
           <tr>
             <th>name</th>
+            <th className="text-size-6">general</th>
             <th className="text-size-6">story</th>
             <th className="text-size-6">beauty</th>
             <th className="text-size-6">gameplay</th>
-            <th className="text-size-6">general</th>
             <th>details</th>
           </tr>
         </thead>
@@ -70,6 +70,13 @@ const TableForm = ({ data }) => {
             return (
               <tr key={el?.gameId?.name}>
                 <td className="text-size-6">{el?.gameId?.name}</td>
+                <td
+                  className={` text-size-5 font-medium rate-${coloring(
+                    el?.rates?.general
+                  )}`}
+                >
+                  {el?.rates?.general}
+                </td>
                 <td
                   className={` text-size-5 font-medium rate-${coloring(
                     el?.rates?.story
@@ -91,13 +98,7 @@ const TableForm = ({ data }) => {
                 >
                   {el?.rates?.gameplay}
                 </td>
-                <td
-                  className={` text-size-5 font-medium rate-${coloring(
-                    el?.rates?.general
-                  )}`}
-                >
-                  {el?.rates?.general}
-                </td>
+
                 <td>
                   <Link
                     href={`users/${el?.userId?.username}/reviews/${el?.id}`}

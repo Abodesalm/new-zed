@@ -1,13 +1,25 @@
 "use client";
 import { signup } from "@/services/auth";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 import { useFormState } from "react-dom";
 import { toast } from "react-toastify";
 
 export default function SignupForm() {
   const [state, formAction] = useFormState<any, FormData>(signup, undefined);
-  const handle = () => {
-    toast.success("loged in successfully");
-  };
+  const router = useRouter();
+
+  useEffect(() => {
+    if (state) {
+      if (state === "success") {
+        toast.success("Signed Up!");
+        router.push("/");
+      } else {
+        toast.error(state);
+      }
+    }
+  }, [state]);
+
   return (
     <form
       action={formAction}
@@ -37,9 +49,7 @@ export default function SignupForm() {
           required
         />
       </div>
-      <button className="btn-accent capitalize" onClick={() => handle}>
-        sing up
-      </button>
+      <button className="btn-accent capitalize">sing up</button>
       {state && <p className="text-danger text-size-6 mt-2">{state}</p>}
     </form>
   );

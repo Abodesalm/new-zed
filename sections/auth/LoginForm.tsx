@@ -1,9 +1,24 @@
 "use client";
 import { login } from "@/services/auth";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 import { useFormState } from "react-dom";
+import { toast } from "react-toastify";
 
 export default function LoginForm() {
   const [state, formAction] = useFormState<any, FormData>(login, undefined);
+  const router = useRouter();
+
+  useEffect(() => {
+    if (state) {
+      if (state === "success") {
+        toast.success("Loged In!");
+        router.push("/");
+      } else {
+        toast.error(state);
+      }
+    }
+  }, [state]);
 
   return (
     <form

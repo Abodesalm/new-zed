@@ -18,6 +18,8 @@ export default async function Game({ params }) {
     metacritic,
     descriptions,
     cover,
+    slug,
+    id,
   } = data;
   const reviews = await getGameReviews(data.id, "limit=10").then(
     (reviews) => reviews.data.data
@@ -34,6 +36,8 @@ export default async function Game({ params }) {
     metacritic,
     descriptions,
     cover,
+    slug,
+    id,
   };
 
   return (

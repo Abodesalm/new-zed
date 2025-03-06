@@ -3,18 +3,29 @@
 import { addReview } from "@/services/games";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import { useEffect } from "react";
 import { useFormState } from "react-dom";
 import { toast } from "react-toastify";
 
 export default function AddReview({ id }) {
   const [state, formAction] = useFormState<any, FormData>(addReview, undefined);
   const path = usePathname();
-  //const router = useRouter();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (state) {
+      if (state === "success") {
+        toast.success("Added review successfully!");
+        router.refresh();
+      } else {
+        toast.error(state);
+      }
+    }
+  }, [state]);
 
   return (
     <form
       action={formAction}
-      onSuspendCapture={() => toast.success("Added Successfully")}
       className="w-full h-fit p-2 rounded-lg bg-light dark:bg-middark drop-shadow-md"
     >
       <div className="flex flex-row justify-between">
@@ -43,7 +54,11 @@ export default function AddReview({ id }) {
         <button className="btn-accent capitalize">add</button>
       </div>
 
-      {state && <p className="text-danger text-size-6 mt-2 w-full">{state}</p>}
+      {state !== "success" ? (
+        <p className="text-danger text-size-6 mt-2 w-full">{state}</p>
+      ) : (
+        ""
+      )}
     </form>
   );
 }

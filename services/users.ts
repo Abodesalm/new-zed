@@ -39,9 +39,9 @@ export const editInfo = async (
   const discord = formData.get("discord") as string;
   const steam = formData.get("steam") as string;
   const avatar = formData.get("avatar") as string;
-  const l = formData.get("locale") as string;
-  //const rawTags = formData.get("tags") as string;
-  //const tags = rawTags.split(",");
+  const rawTags = formData.get("tags") as string;
+  const tags = rawTags.split(",").slice(0, 3);
+
   const editing = await fetch(`${users_api}/updateMe`, {
     method: "PATCH",
     headers: {
@@ -52,7 +52,7 @@ export const editInfo = async (
       username,
       bio,
       avatar,
-      //tags,
+      tags,
       socials: {
         instagram,
         discord,
@@ -71,7 +71,7 @@ export const editInfo = async (
     session.tags = userData.tags;
 
     await session.save();
-    redirect(`users/${session.username}`);
+    return editing;
   } else {
     return editing.message;
   }

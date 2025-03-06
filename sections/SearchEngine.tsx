@@ -95,7 +95,7 @@ function SearchEngine({ role }) {
 
         <div
           className={` ${
-            filters ? "h-[300px]" : "h-[0]"
+            filters ? "h-[340px]" : "h-[0]"
           } overflow-hidden transition-all w-full flex flex-col gap-y-4 pt-2`}
         >
           {/* Genres */}
@@ -109,6 +109,7 @@ function SearchEngine({ role }) {
                     name={el}
                     add={add_tag}
                     del={del_tag}
+                    dispatch={dispatch}
                     key={el}
                   />
                 );
@@ -125,6 +126,7 @@ function SearchEngine({ role }) {
                     name={el}
                     add={add_platform}
                     del={del_platform}
+                    dispatch={dispatch}
                     key={el}
                   />
                 );
@@ -230,7 +232,7 @@ function SearchEngine({ role }) {
       <section>
         <div className="w-[240px] h-[100px] bg-light dark:bg-darker flex flex-row justify-evenly items-center rounded-[10px] mx-auto drop-shadow">
           <button
-            className="w-[50px] h-[50px] flex-center rounded-full border hover:shadow-sm hover:shadow-accent border-accent transition-all"
+            className="w-[50px] h-[50px] flex-center rounded-full border border-accent transition-all"
             id="previous"
             onClick={() => {
               dispatch(pre_page());
@@ -240,7 +242,7 @@ function SearchEngine({ role }) {
           </button>
           <div className="w-[50px] h-[50px] flex-center">{queries.page}</div>
           <button
-            className="w-[50px] h-[50px] flex-center rounded-full border hover:shadow-sm hover:shadow-accent border-accent transition-all"
+            className="w-[50px] h-[50px] flex-center rounded-full border border-accent transition-all"
             id="next"
             onClick={() => {
               dispatch(next_page(games?.results));

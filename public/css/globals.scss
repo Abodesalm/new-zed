@@ -28,7 +28,7 @@ body {
 }
 
 .navbar {
-  @apply pad bg-light dark:bg-darker flex flex-row justify-between items-center drop-shadow select-none sticky top-0 z-10;
+  @apply pad bg-light dark:bg-darker flex flex-row justify-between items-center drop-shadow-sm select-none sticky top-0 z-10;
 }
 
 .statDiv {

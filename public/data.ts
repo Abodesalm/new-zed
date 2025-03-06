@@ -1,6 +1,11 @@
-import { getTranslations } from "next-intl/server";
+let space = "host";
+let API_URL;
+if (space === "local") {
+  API_URL = `http://127.0.0.1:8000`;
+} else if (space === "host") {
+  API_URL = `https://zed-games-api.onrender.com`;
+}
 
-const API_URL = `https://zed-games-api.onrender.com`;
 const api = {
   main_api: `${API_URL}/api`,
   games_api: `${API_URL}/api/games`,
@@ -21,11 +26,12 @@ export const years = [
 
 export const allGenres = [
   "action",
-  "fps",
+  "FPS",
+  "shooter",
   "open world",
   "battle royal",
-  "rpg",
   "stealth",
+  "rpg",
   "indie",
   "platform",
   "survival",
@@ -38,24 +44,38 @@ export const allGenres = [
   "strategy",
   "sports",
   "racing",
-  "casual",
   "fighting",
   "cards",
   "hack & slash",
   "family-friendly",
+  "sandbox",
+  "metroidvania",
+  "rogue-like",
+  "souls-like",
+  "party",
+  "retro",
+  "comedy",
+  "co-op",
+  "pixel-art",
+  "historical",
+  "tycoon",
+  "turn-based",
 ];
 
 export const platforms = [
-  "pc",
-  "ps1",
-  "ps2",
-  "ps3",
-  "ps4",
-  "ps5",
-  "xbox 1",
-  "xbox 360",
+  "PC",
+  "PS1",
+  "PS2",
+  "PS3",
+  "PS4",
+  "PS5",
+  "XBOX 1",
+  "XBOX 360",
+  "XBOX SS",
+  "XBOX SX",
   "mobile",
   "switch",
+  "wii",
 ];
 
 export const searchs = [

@@ -21,8 +21,12 @@ import { MdArrowDropDown, MdEmail } from "react-icons/md";
 import { TbHierarchy2 } from "react-icons/tb";
 import { BiStats } from "react-icons/bi";
 import {
+  RiBookmark2Line,
+  RiDeleteBin5Line,
   RiDiscordFill,
   RiDiscordLine,
+  RiEdit2Line,
+  RiExternalLinkLine,
   RiFacebookFill,
   RiFacebookLine,
   RiHomeFill,
@@ -71,6 +75,11 @@ export default function Icon({ i, className = "" }) {
   else if (i === "normal-form") return <BsFiles className={className} />;
   else if (i === "table-form") return <BsTable className={className} />;
   // ...
+  else if (i === "remove") return <RiDeleteBin5Line className={className} />;
+  else if (i === "toLink") return <RiExternalLinkLine className={className} />;
+  else if (i === "edit") return <RiEdit2Line className={className} />;
+  else if (i === "wishlist") return <RiBookmark2Line className={className} />;
+  //
   else if (i === "birth") return <BiCalendarEvent className={className} />;
   else if (i === "address") return <FaHouseChimney className={className} />;
   else if (i === "phone") return <FaPhone className={className} />;

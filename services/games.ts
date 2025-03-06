@@ -92,8 +92,25 @@ export const addReview = async (
       console.log(err);
     });
   if (posting.status === "success") {
-    return;
+    return "success";
   } else {
     return posting.message;
   }
+};
+
+export const wishlisting = async (gameId) => {
+  const session = await getAuth();
+  const patch = await fetch(`${games_api}/${gameId}/wishlist`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${session.token}`,
+    },
+  })
+    .then((data) => data.json())
+    .catch((err) => console.log(err));
+
+  session.wishlist = patch?.data?.user?.wishlist;
+  await session.save();
+  return patch;
 };

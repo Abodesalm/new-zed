@@ -1,15 +1,15 @@
-"use client";
-
-import { store } from "@/redux/game-add/store";
+import Protect from "@/components/layout/Protect";
+import ReduxProvider from "@/sections/game/ReduxProvider";
 import AddForm from "@/sections/game/AddForm";
-import { Provider } from "react-redux";
 
 export default function GameForm() {
   return (
-    <Provider store={store}>
-      <div className="pad w-full">
-        <AddForm />
-      </div>
-    </Provider>
+    <Protect permission={"admin"}>
+      <ReduxProvider>
+        <div className="pad w-full">
+          <AddForm />
+        </div>
+      </ReduxProvider>
+    </Protect>
   );
 }

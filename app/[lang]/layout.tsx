@@ -7,6 +7,7 @@ import Footer from "@/sections/Footer";
 import { getLocale } from "next-intl/server";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Header from "@/sections/Header";
 
 export const metadata: Metadata = {
   title: "Zed Games",
@@ -28,7 +29,8 @@ export default async function Layout({
       <body>
         <Providers>
           <Navbar />
-          <div className="flex flex-row w-full">{children}</div>
+          <Header />
+          <div className="w-full">{children}</div>
           <Footer />
           <ToUp />
         </Providers>

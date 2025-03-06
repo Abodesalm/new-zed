@@ -11,7 +11,7 @@ async function UserInfo({ user, check }) {
         <div className="w-[75px] h-[75px] bg-dark rounded-full">
           <Avatar avatar={user?.data?.avatar} className="w-[75px]" />
         </div>
-        <div className="flex flex-col">
+        <div className="flex flex-col gap-2">
           <h3 className="text-size-4">{user?.data?.username}</h3>
           <div className="flex flex-row items-center gap-8">
             {user?.data?.tags &&
@@ -39,10 +39,11 @@ async function UserInfo({ user, check }) {
       </div>
       {check && (
         <Link
-          className="btn-accent-outline fixed top-[100px] end-[140px] md:top-[75px] md:end-[20px]"
+          className="btn-accent-outline absolute top-[120px] end-[160px] md:top-[125px] md:end-[20px]"
           href={`/users/${user?.data?.username}/update`}
         >
-          edit
+          <p className="md:hidden">edit</p>
+          <Icon className="hidden md:flex" i={`edit`} />
         </Link>
       )}
     </div>

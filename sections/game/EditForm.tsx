@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import GameForm from "./GameForm";
 import { games_api } from "@/public/data";
 import { getAuth } from "@/services/auth";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { getGameByName } from "@/services/games";
 import { set_all } from "@/redux/game-add/slice";
 import { toast } from "react-toastify";
@@ -17,6 +17,7 @@ export default function EditForm() {
   const gameState = useSelector((state: any) => state.gameState);
   const [error, setError] = useState<any>();
   const [data, setdata] = useState<any>();
+  const router = useRouter();
 
   useEffect(() => {
     let get = async () => {
@@ -47,9 +48,8 @@ export default function EditForm() {
       );
     if (post.status === "success") {
       setError(<p className="text-accent capitalize">updated!</p>);
-      toast("updated!", {
-        type: "success",
-      });
+      toast.success("Updated successfully!");
+      router.push(`/games/${post?.data?.data?.slug}`);
     } else {
       setError(<p className="text-danger capitalize">{post?.message}</p>);
       toast.error(post.message);

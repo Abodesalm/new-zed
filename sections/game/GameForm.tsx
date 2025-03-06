@@ -194,6 +194,7 @@ export default function GameForm({
                   name={el}
                   add={add_tag}
                   del={del_tag}
+                  dispatch={dispatch}
                   key={el}
                 />
               );
@@ -210,6 +211,7 @@ export default function GameForm({
                   name={el}
                   add={add_platform}
                   del={del_platform}
+                  dispatch={dispatch}
                   key={el}
                 />
               );
