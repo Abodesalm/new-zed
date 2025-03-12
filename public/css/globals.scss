@@ -97,3 +97,25 @@ body {
 .rate-red {
   color: rgb(239 68 68);
 }
+
+@keyframes shine {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.golden-glass {
+  display: flex !important;
+  background: linear-gradient(135deg, #fff700, #ffb800, #ffd700);
+  background-size: 200% 200%;
+  animation: shine 3s linear infinite;
+  backdrop-filter: blur(10px);
+  box-shadow: 0px 0px 5px rgba(255, 215, 0, 0.5);
+  @apply p-2 flex-row rounded-lg gap-4;
+}

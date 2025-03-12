@@ -7,11 +7,11 @@ import { Suspense } from "react";
 
 export default async function Home() {
   return (
-    <div className="pad w-full">
+    <div className="pad pt-[0_!important] w-full">
       <Suspense fallback={<Loader />}>
         <Spotlight />
-        <GamesCount />
         <Golden />
+        <GamesCount />
         <NewsHome />
       </Suspense>
     </div>

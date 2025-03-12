@@ -1,7 +1,8 @@
 import Genre from "@/components/Genre";
 import Wishlist from "@/components/Wishlist";
 import Icon from "@/components/layout/Icon";
-import { coloring, covers_api } from "@/public/data";
+import coloring from "@/utils/coloring";
+import { covers_api } from "@/public/data";
 import { getAuth } from "@/services/auth";
 import { getLocale } from "next-intl/server";
 import Image from "next/image";

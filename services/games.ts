@@ -114,3 +114,13 @@ export const wishlisting = async (gameId) => {
   await session.save();
   return patch;
 };
+
+export const getGoldenGames = async () => {
+  const games = await fetch(`${games_api}/random-golden`, {
+    next: { revalidate: 5 },
+  })
+    .then((data) => data.json())
+    .catch((err) => console.log(`${err}`));
+
+  return games;
+};

@@ -1,7 +1,7 @@
 import { covers_api } from "@/public/data";
 import Image from "next/image";
 import Link from "next/link";
-import { coloring } from "@/public/data";
+import coloring from "@/utils/coloring";
 
 function UserReview({ name, cover, rates, id, username }) {
   return (

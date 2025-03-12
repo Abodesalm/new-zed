@@ -7,14 +7,14 @@ async function Spotlight() {
   const game = await getGameOfTheDay();
   return (
     <div>
-      <section className="h-[400px] flex flex-row">
-        <div className="w-[260px] h-[380px] -rotate-3 rtl:rotate-3 mt-2 rounded-xl flex items-center justify-center">
+      <section className="flex flex-row">
+        <div className="w-[260px] -rotate-3 rtl:rotate-3 mt-2 rounded-xl flex items-center justify-center">
           <Image
             src={`${covers_api}/${game.cover}`}
             alt={`${game.name} cover image`}
-            width={260}
-            height={380}
-            className="rounded-xl md:w-[200px] md:h-auto"
+            width={300}
+            height={900}
+            className="rounded-xl h-auto w-[260px] md:w-[200px]"
           />
         </div>
         <div className="flex flex-col justify-between w-[calc(100%-260px)] md:w-[calc(100%-200px)]">

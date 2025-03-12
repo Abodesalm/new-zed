@@ -1,4 +1,4 @@
-let space = "host";
+let space = "local";
 let API_URL;
 if (space === "local") {
   API_URL = `http://127.0.0.1:8000`;
@@ -93,7 +93,7 @@ export const searchs = [
 ];
 
 export const sections = [
-  { title: `golden`, url: `/gold` },
+  { title: `golden`, url: `/golden` },
   { title: `about`, url: `/about` },
 ];
 
@@ -114,14 +114,6 @@ export const avatars = [
   "sheepy-2.jpg",
   "stray.jpg",
 ];
-
-export const coloring = (num) => {
-  if (num === 100) return "green";
-  else if (num < 100 && num >= 85) return "cyan";
-  else if (num < 85 && num >= 70) return "yellow";
-  else if (num < 70 && num >= 60) return "orange";
-  else if (num < 60) return "red";
-};
 
 export const {
   main_api,

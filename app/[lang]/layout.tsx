@@ -1,13 +1,13 @@
-import type { Metadata } from "next";
 import "@/public/css/globals.css";
+import "react-toastify/dist/ReactToastify.css";
 import Navbar from "@/sections/Navbar";
 import ToUp from "@/components/layout/ToUp";
 import Providers from "./Providers";
 import Footer from "@/sections/Footer";
+import Header from "@/sections/Header";
+import type { Metadata } from "next";
 import { getLocale } from "next-intl/server";
 import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import Header from "@/sections/Header";
 
 export const metadata: Metadata = {
   title: "Zed Games",

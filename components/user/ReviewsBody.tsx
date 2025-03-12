@@ -4,7 +4,7 @@
 import UserReview from "./UserReview";
 import { useEffect, useState } from "react";
 import { getUserReviews } from "@/services/users";
-import { coloring } from "@/public/data";
+import coloring from "@/utils/coloring";
 import Link from "next/link";
 
 function ReviewsBody({ id, searching, form }) {
@@ -101,7 +101,7 @@ const TableForm = ({ data }) => {
 
                 <td>
                   <Link
-                    href={`users/${el?.userId?.username}/reviews/${el?.id}`}
+                    href={`/users/${el?.userId?.username}/${el?.id}`}
                     className="w-full text-size-6 text-accent underline decoration-accent"
                   >
                     details
